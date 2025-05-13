@@ -1,0 +1,77 @@
+<head>
+    <title>
+        <%= event.title %>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link " aria-current="page" href="http://localhost:3000/">Home</a>
+                    <a class="nav-link active" href="http://localhost:3000/event">Events</a>
+                    <a class="nav-link" href="http://localhost:3000/become/volunteer">Become volunteer</a>
+                    <a class="nav-link disabled" aria-disabled="true"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="http://localhost:3000/">Home</a></li>
+            <li class="breadcrumb-item"><a href="http://localhost:3000/event">Events</a></li>
+            <li class="breadcrumb-item active" aria-current="page">event title</li>
+        </ol>
+    </nav>
+    <br>
+
+
+
+    <div class="row row-cols-1 row-cols-md-2 col-sm-6">
+        <div class="card "style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= event.title %>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                    <%= event.organizer%>
+                </h6>
+                <p class="card-text">
+                    <%= event.description %>
+                </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <%= event.datetime %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= event.location %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= event.quota %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="col mb-2">
+        <div class="card w-40 ">
+            <img src="https://s.yimg.com/ny/api/res/1.2/6I4vEaEYfbjsPX.IX13thA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTU0MDtjZj13ZWJw/https://media.zenfs.com/zh-tw/game_nownews_com_902/4249e135bfeb536372a5865267714b09" class="wcard-img-top" alt="..."
+               style="  align-items: center">
+            <div class="card-body">
+                <p class="fw-bold">Become a volunteer!</p>
+                <p class="card-text">You time and talent can make a real different in people's life.</p>
+            </div>
+        </div>
+    </div></div>

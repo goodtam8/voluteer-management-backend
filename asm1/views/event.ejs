@@ -1,0 +1,118 @@
+<head>
+    <title>
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link " aria-current="page" href="http://localhost:3000/">Home</a>
+                    <a class="nav-link active" href="http://localhost:3000/event">Events</a>
+                    <a class="nav-link" href="http://localhost:3000/become/volunteer">Become volunteer</a>
+                    <a class="nav-link disabled" aria-disabled="true"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="http://localhost:3000/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Events</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary  btn-lg float-end" role="button" aria-disabled="false" a
+                href="http://localhost:3000/event/new">New</a>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <% for (var ev of event) { %>
+
+            <div class="card col-md-4">
+                <a href="http://localhost:3000/event/detail/<%= ev._id %>"">
+                <img src=" <%=ev.image %>"" class=" card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= ev.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= ev.description %>
+                    </p>
+                    <div class="row">
+                        <div class="col">
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p>
+                        </div>
+                        <div class="col">
+                            <a href="/event/edit/<%= ev._id %>"" class=" btn btn-primary btn-lg float-end">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+    </div>
+
+
+   
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <% for (let i=1; i <=Math.ceil(total / perPage); i++) { %>
+                <% if(!req.query.page) { %>
+                    <%if(i==1){%>
+                        <li class="page-item active"><a class="page-link"
+                                href="/event?page=<%= i %>&perPage=<%= perPage %>">  <%= i %>
+                            </a></li>
+
+                        <%}else{%>
+                            <li class="page-item "><a class="page-link"
+                                    href="/event?page=<%= i %>&perPage=<%= perPage %>">  <%= i %>
+                                </a></li>
+                            <%}%><%}else{%>
+                                <%if (req.query.page==i){%>
+                                    <li class="page-item active"><a class="page-link"
+                                            href="/event?page=<%= i %>&perPage=<%= perPage %>">  <%= i %>
+                                        </a></li>
+
+
+                                            <span>
+                                            </span>
+                                            <% } else { %>
+                                    <li class="page-item "><a class="page-link"
+                                            href="/event?page=<%= i %>&perPage=<%= perPage %>">
+                                            <%= i %>
+                                        </a></li>
+
+                                                <% } %>
+                                                    <% } %>
+                                                    
+                                                    
+                                                    
+                                                    <% } %>
+
+
+        </ul>
+    </nav>
+    <br>
+</body>
